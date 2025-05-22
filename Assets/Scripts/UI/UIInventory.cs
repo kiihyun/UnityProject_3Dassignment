@@ -14,14 +14,22 @@ public class UIInventory : MonoBehaviour
     [Header("Selected Item")]
     private ItemSlot selectedItem;
     private int selectedItemIndex;
-    public TextMeshProUGUI selectedItemName;
-    public TextMeshProUGUI selectedItemDescription;
-    public TextMeshProUGUI selectedItemStatName;
-    public TextMeshProUGUI selectedItemStatValue;
+    //public TextMeshProUGUI selectedItemName;
+    //public TextMeshProUGUI selectedItemDescription;
+    //public TextMeshProUGUI selectedItemStatName;
+    //public TextMeshProUGUI selectedItemStatValue;
+    [SerializeField] private Transform selectedInfoPanel;
+
+    private TMP_Text selectedItemName;
+    private TMP_Text selectedItemDescription;
+    private TMP_Text selectedItemStatName;
+    private TMP_Text selectedItemStatValue;
+
     public GameObject useButton;
     public GameObject equipButton;
     public GameObject unEquipButton;
     public GameObject dropButton;
+
 
     private int curEquipIndex;
 
@@ -34,6 +42,11 @@ public class UIInventory : MonoBehaviour
         condition = CharacterManager.Instance.Player.condition;
         dropPosition = CharacterManager.Instance.Player.dropPosition;
 
+        selectedItemName = selectedInfoPanel.Find("ItemName")?.GetComponent<TMP_Text>();
+        selectedItemDescription = selectedInfoPanel.Find("ItemDescription")?.GetComponent<TMP_Text>();
+        selectedItemStatName = selectedInfoPanel.Find("StatName")?.GetComponent<TMP_Text>();
+        selectedItemStatValue = selectedInfoPanel.Find("StatValue")?.GetComponent<TMP_Text>();
+
         controller.inventory += Toggle;
         CharacterManager.Instance.Player.addItem += AddItem;
 
@@ -44,7 +57,7 @@ public class UIInventory : MonoBehaviour
             slots[i] = slotPanel.GetChild(i).GetComponent<ItemSlot>();
             slots[i].index = i;
             slots[i].inventory = this;
-            //slots[i].Clear();
+            slots[i].Clear();
         }
 
         ClearSelectedItemWindow();
@@ -54,6 +67,8 @@ public class UIInventory : MonoBehaviour
     {
         selectedItem = null;
 
+
+        Debug.Log(selectedItemName.text);   
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
         selectedItemStatName.text = string.Empty;
