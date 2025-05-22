@@ -68,7 +68,6 @@ public class UIInventory : MonoBehaviour
         selectedItem = null;
 
 
-        Debug.Log(selectedItemName.text);   
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
         selectedItemStatName.text = string.Empty;

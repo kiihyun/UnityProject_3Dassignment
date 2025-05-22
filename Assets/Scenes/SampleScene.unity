@@ -853,7 +853,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   curInteractGameObject: {fileID: 0}
-  promptText: {fileID: 1563171286}
+  promptText: {fileID: 0}
+  promptPanel: {fileID: 172431337}
 --- !u!1 &128857505 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6233898138633784310, guid: cad85621ad4cff84f9f308d05019d6a9, type: 3}
@@ -7253,7 +7254,7 @@ GameObject:
   - component: {fileID: 1563171286}
   m_Layer: 5
   m_Name: PromptText
-  m_TagString: Untagged
+  m_TagString: Prompt_Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

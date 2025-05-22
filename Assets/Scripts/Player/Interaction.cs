@@ -18,6 +18,9 @@ public class Interaction : MonoBehaviour
     void Start()
     {
         camera = Camera.main;
+        //promptText = promptPanel.Find("PromptText").GetComponent<TextMeshProUGUI>();
+        promptText = GameObject.FindGameObjectWithTag("Prompt_Text").GetComponent<TextMeshProUGUI>();
+
     }
 
     // Update is called once per frame
