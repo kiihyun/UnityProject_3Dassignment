@@ -69,4 +69,14 @@ public class PlayerCondition : MonoBehaviour
     {
         Debug.Log("플레이어가 죽었다.");
     }
+
+    public bool UseStamina(float amount)
+    {
+        if (stamina.curValue - amount < 0)
+        {
+            return false;
+        }
+        stamina.Subtract(amount);
+        return true;
+    }
 }
